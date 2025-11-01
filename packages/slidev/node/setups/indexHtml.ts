@@ -57,11 +57,11 @@ export default async function setupIndexHtml({ mode, entry, clientRoot, userRoot
   const seoMeta = (data.headmatter.seoMeta ?? {}) as SeoMeta
 
   const ogImage = seoMeta.ogImage === 'auto'
-    ? './og-image.png'
+    ? `${base}og-image.png`
     : seoMeta.ogImage
       ? seoMeta.ogImage
       : existsSync(join(userRoot, 'og-image.png'))
-        ? './og-image.png'
+        ? `${base}og-image.png`
         : undefined
 
   const title = getSlideTitle(data)
